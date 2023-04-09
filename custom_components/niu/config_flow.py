@@ -1,5 +1,5 @@
 """Config flow for Niu Integration integration.
-    Author: Giovanni P. (@pikka97)
+    Author: Giovanni P. (@AttilioCapocchiani)
 """
 from __future__ import annotations
 

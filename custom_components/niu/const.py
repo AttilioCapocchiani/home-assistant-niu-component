@@ -28,7 +28,8 @@ SENSOR_TYPE_POS = "POSITION"
 SENSOR_TYPE_TRACK = "TRACK"
 
 AVAILABLE_SENSORS = [
-    "BatteryCharge",
+    "BatteryACharge",
+    "BatteryBCharge",
     "Isconnected",
     "TimesCharged",
     "temperatureDesc",
@@ -109,15 +110,23 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 SENSOR_TYPES = {
-    "BatteryCharge": [
-        "battery_charge",
+    "Battery Charge (A)": [
+        "battery_a_charge",
         "%",
         "batteryCharging",
         SENSOR_TYPE_BAT,
         "battery",
         "mdi:battery-charging-50",
     ],
-    "Isconnected": [
+    "Battery Charge (B)": [
+        "battery_b_charge",
+        "%",
+        "batteryCharging",
+        SENSOR_TYPE_BAT,
+        "battery",
+        "mdi:battery-charging-50",
+    ],
+    "Is Connected": [
         "is_connected",
         "",
         "isConnected",
@@ -125,7 +134,7 @@ SENSOR_TYPES = {
         "connectivity",
         "mdi:connection",
     ],
-    "TimesCharged": [
+    "Times Charged": [
         "times_charged",
         "x",
         "chargedTimes",
@@ -133,7 +142,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:battery-charging-wireless",
     ],
-    "temperatureDesc": [
+    "Temperature Desc": [
         "temp_descr",
         "",
         "temperatureDesc",
@@ -149,7 +158,7 @@ SENSOR_TYPES = {
         "temperature",
         "mdi:thermometer",
     ],
-    "BatteryGrade": [
+    "Battery Grade": [
         "battery_grade",
         "%",
         "gradeBattery",
@@ -157,7 +166,7 @@ SENSOR_TYPES = {
         "battery",
         "mdi:car-battery",
     ],
-    "CurrentSpeed": [
+    "Current Speed": [
         "current_speed",
         "km/h",
         "nowSpeed",
@@ -165,7 +174,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:speedometer",
     ],
-    "ScooterConnected": [
+    "Scooter Connected": [
         "scooter_connected",
         "",
         "isConnected",
@@ -173,7 +182,7 @@ SENSOR_TYPES = {
         "connectivity",
         "mdi:motorbike-electric",
     ],
-    "IsCharging": [
+    "Is Charging": [
         "is_charging",
         "",
         "isCharging",
@@ -181,8 +190,8 @@ SENSOR_TYPES = {
         "power",
         "mdi:battery-charging",
     ],
-    "IsLocked": ["is_locked", "", "lockStatus", SENSOR_TYPE_MOTO, "lock", "mdi:lock"],
-    "TimeLeft": [
+    "Is Locked": ["is_locked", "", "lockStatus", SENSOR_TYPE_MOTO, "lock", "mdi:lock"],
+    "Time Left": [
         "time_left",
         "h",
         "leftTime",
@@ -190,7 +199,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:av-timer",
     ],
-    "EstimatedMileage": [
+    "Estimated Mileage": [
         "estimated_mileage",
         "km",
         "estimatedMileage",
@@ -198,7 +207,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:map-marker-distance",
     ],
-    "centreCtrlBatt": [
+    "Centre Ctrl Batt": [
         "centre_ctrl_batt",
         "%",
         "centreCtrlBattery",
@@ -217,7 +226,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:map-marker-distance",
     ],
-    "RidingTime": [
+    "Riding Time": [
         "riding_time",
         "s",
         "ridingTime",
@@ -225,7 +234,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:map-clock",
     ],
-    "totalMileage": [
+    "Total Mileage": [
         "total_mileage",
         "km",
         "totalMileage",
@@ -233,7 +242,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:map-marker-distance",
     ],
-    "DaysInUse": [
+    "Days In Use": [
         "bind_days_count",
         "days",
         "bindDaysCount",
@@ -241,7 +250,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:calendar-today",
     ],
-    "LastTrackStartTime": [
+    "Last Track Start Time": [
         "last_track_start_time",
         "",
         "startTime",
@@ -249,7 +258,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:clock-start",
     ],
-    "LastTrackEndTime": [
+    "Last Track End Time": [
         "last_track_end_time",
         "",
         "endTime",
@@ -257,7 +266,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:clock-end",
     ],
-    "LastTrackDistance": [
+    "Last Track Distance": [
         "last_track_distance",
         "m",
         "distance",
@@ -265,7 +274,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:map-marker-distance",
     ],
-    "LastTrackAverageSpeed": [
+    "Last Track Average Speed": [
         "last_track_average_speed",
         "km/h",
         "avespeed",
@@ -273,7 +282,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:speedometer",
     ],
-    "LastTrackRidingtime": [
+    "Last Track Riding Time": [
         "last_track_riding_time",
         "",
         "ridingtime",
@@ -281,7 +290,7 @@ SENSOR_TYPES = {
         "none",
         "mdi:timelapse",
     ],
-    "LastTrackThumb": [
+    "Last Track Thumb": [
         "last_track_thumb",
         "",
         "track_thumb",

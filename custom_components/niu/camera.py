@@ -1,5 +1,5 @@
 """Last Track for Niu Integration integration.
-    Author: Giovanni P. (@pikka97)
+    Author: Giovanni P. (@AttilioCapocchiani)
 """
 from .api import NiuApi
 from .const import *

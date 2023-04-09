@@ -1,6 +1,6 @@
 """
     Support for Niu Scooters by Marcel Westra.
-    Asynchronous version implementation by Giovanni P. (@pikka97)
+    Asynchronous version implementation by Giovanni P. (@AttilioCapocchiani)
 """
 from .api import NiuApi
 from .const import *
@@ -128,15 +128,18 @@ class NiuSensor(Entity):
     def extra_state_attributes(self):
         if self._sensor_grp == SENSOR_TYPE_MOTO and self._id_name == "isConnected":
             return {
-                "bmsId": self._api.getDataBat("bmsId"),
+                "bmsId_a": self._api.getDataBat("bmsId"),
+                "bmsId_b": self._api.getBatteryB("bmsId"),
                 "latitude": self._api.getDataPos("lat"),
                 "longitude": self._api.getDataPos("lng"),
                 "gsm": self._api.getDataMoto("gsm"),
                 "gps": self._api.getDataMoto("gps"),
                 "time": self._api.getDataDist("time"),
                 "range": self._api.getDataMoto("estimatedMileage"),
-                "battery": self._api.getDataBat("batteryCharging"),
-                "battery_grade": self._api.getDataBat("gradeBattery"),
+                "battery_a": self._api.getDataBat("batteryCharging"),
+                "battery_a_grade": self._api.getDataBat("gradeBattery"),
+                "battery_b": self._api.getBatteryB("batteryCharging"),
+                "battery_b_grade": self._api.getBatteryB("gradeBattery"),
                 "centre_ctrl_batt": self._api.getDataMoto("centreCtrlBattery"),
             }
 
@@ -145,6 +148,8 @@ class NiuSensor(Entity):
         if self._sensor_grp == SENSOR_TYPE_BAT:
             await self._hass.async_add_executor_job(self._api.updateBat)
             self._state = self._api.getDataBat(self._id_name)
+            await self._hass.async_add_executor_job(self._api.getBatteryB)
+            self._state = self._api.getBatteryB(self._id_name)
 
         elif self._sensor_grp == SENSOR_TYPE_MOTO:
             await self._hass.async_add_executor_job(self._api.updateMoto)

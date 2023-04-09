@@ -2,14 +2,15 @@
   "domain": "niu",
   "name": "Niu Scooters",
   "config_flow": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "iot_class": "cloud_polling",
-  "documentation": "https://github.com/pikka97/home-assistant-niu-component",
-  "issue_tracker": "https://github.com/pikka97/home-assistant-niu-component/issues",
+  "documentation": "https://github.com/AttilioCapocchiani/home-assistant-niu-component",
+  "issue_tracker": "https://github.com/AttilioCapocchiani/home-assistant-niu-component/issues",
   "requirements": [],
   "dependencies": [],
   "codeowners": [
-    "@pikka97",
+    "@AttilioCapocchiani",
+    "@AttilioCapocchiani",
     "@mwestra"
   ]
 }

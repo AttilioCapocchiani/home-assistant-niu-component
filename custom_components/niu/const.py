@@ -70,13 +70,14 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_PASSWORD): cv.string,
         vol.Required(CONF_COUNTRY): cv.positive_int,
         vol.Optional(CONF_SCOOTER_ID, default=DEFAULT_SCOOTER_ID): cv.positive_int,
-        vol.Optional(CONF_MONITORED_VARIABLES, default=["BatteryCharge"]): vol.All(
+        vol.Optional(CONF_MONITORED_VARIABLES, default=["BatteryACharge"]): vol.All(
             cv.ensure_list,
             vol.Length(min=1),
             [
                 vol.In(
                     [
-                        "BatteryCharge",
+                        "BatteryACharge",
+                        "BatteryBCharge",
                         "Isconnected",
                         "TimesCharged",
                         "temperatureDesc",
@@ -113,7 +114,7 @@ SENSOR_TYPES = {
     "Battery Charge (A)": [
         "battery_a_charge",
         "%",
-        "batteryCharging",
+        "batteryACharging",
         SENSOR_TYPE_BAT,
         "battery",
         "mdi:battery-charging-50",
@@ -121,7 +122,7 @@ SENSOR_TYPES = {
     "Battery Charge (B)": [
         "battery_b_charge",
         "%",
-        "batteryCharging",
+        "batteryBCharging",
         SENSOR_TYPE_BAT,
         "battery",
         "mdi:battery-charging-50",
